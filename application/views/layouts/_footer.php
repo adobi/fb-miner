@@ -6,7 +6,7 @@
     		</div> <!-- footer -->
 		
 		</div> <!-- container -->
-        <div id="loading-global">Kis türelmet...</div>
+        <div id="loading-global">Please wait...</div>
 		
 	</body>
 

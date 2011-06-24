@@ -4,7 +4,7 @@ if (! defined('BASEPATH')) exit('No direct script access');
 
 require_once 'Admin_Controller.php';
 
-class Shopmanager extends MY_Controller 
+class Mineitemmanager extends Admin_Controller 
 {
     public function index() 
     {
@@ -12,7 +12,7 @@ class Shopmanager extends MY_Controller
         
         $this->load->model('', '');
         
-        $this->template->build('shopmanager/index', $data);
+        $this->template->build('mineitemmanager/index', $data);
     }
     
     public function edit() 
@@ -21,7 +21,7 @@ class Shopmanager extends MY_Controller
         
         $id = $this->uri->segment(3);
         
-        $this->load->model('', 'model');
+        $this->load->model('Mineitems', 'model');
         
         $item = false;
         if ($id) {
@@ -29,8 +29,11 @@ class Shopmanager extends MY_Controller
         }
         $data['current_item'] = $item;
         
-        if ($this->form_validation->run()) {
+        $this->form_validation->set_rules('name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('price', 'Price', 'trim|required');
         
+        if ($this->form_validation->run()) {
+            //dump($_POST); die;
             if ($id) {
                 $this->model->update($_POST, $id);
             } else {
@@ -40,11 +43,14 @@ class Shopmanager extends MY_Controller
         } else {
             if ($_POST) {
                 
+    	        $this->session->set_userdata('validation_error',validation_errors());
+    	        $this->session->set_userdata('current_dialog_item', (is_numeric($id) ? $id : -2));                
+                
                 redirect($_SERVER['HTTP_REFERER']);
             }
         }
         
-        $this->template->build('shopmanager/edit', $data);
+        $this->template->build('mineitemmanager/edit', $data);
     }
     
     public function delete()
@@ -52,7 +58,7 @@ class Shopmanager extends MY_Controller
         $id = $this->uri->segment(3);
         
         if ($id) {
-            $this->load->model('', 'model');
+            $this->load->model('Mineitems', 'model');
             
             $this->model->delete($id);
         }
