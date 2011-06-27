@@ -24,7 +24,7 @@ class Auth extends Admin_Controller
         
         if ($this->form_validation->run()) {
             
-            redirect(base_url() . 'admin/mine');
+            redirect(base_url() . 'admin/');
         }
         
         $this->template->build('auth/login');

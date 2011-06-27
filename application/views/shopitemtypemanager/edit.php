@@ -1,5 +1,4 @@
-
-<fieldset class="round">
+<fieldset class = "round">
     <?= form_open(); ?>
         <p>
             <label for="name" class = "block">Name</label>
@@ -8,5 +7,5 @@
         <p>
             <button>Save</button>
         </p>
-    <?= form_close(); ?>
-</fieldset>    
+    <?= form_close(); ?>    
+</fieldset>

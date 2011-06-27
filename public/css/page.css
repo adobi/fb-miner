@@ -242,3 +242,8 @@ fieldset {
     background:#F7E1B3;
     margin-bottom:10px;
 }
+
+.item-for-facebook-coin {
+    background:#D8DFEA;
+    border:1px solid #3B5998!important;
+}

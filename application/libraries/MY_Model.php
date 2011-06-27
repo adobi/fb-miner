@@ -399,7 +399,6 @@ class My_Model extends CI_Model
 	    
 	    $valuesArray = explode('+', $value);
 	    
-	    
 	    if ($data) {
 	        foreach ($data as $d) {
 	            $r = array();
