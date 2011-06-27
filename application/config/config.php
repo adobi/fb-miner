@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/invictus/game/app/public/';
+$config['base_url']	= 'http://fb-miner.orchestra.io';
 
 /*
 |--------------------------------------------------------------------------
