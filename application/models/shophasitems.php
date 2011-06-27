@@ -17,7 +17,8 @@ class Shophasitems extends MY_Model
         $result = $this->fetchRows(
             array(
                 'join'=>array(
-                    array('table'=>'shop_item', 'condition'=>'shop_has_item.shop_item_id = shop_item.id', 'columns'=>array('shop_item.name'))  
+                    array('table'=>'shop_item', 'condition'=>'shop_has_item.shop_item_id = shop_item.id', 'columns'=>array('shop_item.name', 'shop_item.price', 'shop_item.fb_coin_price')),
+                    array('table'=>'shop_item_type', 'condition'=>'shop_item_type.id = shop_item.shop_item_type_id', 'columns'=>array('shop_item_type.name as item_type'))  
                 ),
                 'where'=>array('shop_has_item.shop_id'=>$shop)    
             )

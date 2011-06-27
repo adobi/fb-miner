@@ -3,7 +3,7 @@ body {
 }
 
 a {
-	text-decoration: none; padding:3px; color: #41B5FF!important;
+	text-decoration: none; padding:3px; color: #0099cc!important;
 }
 
 a:hover{
@@ -25,7 +25,7 @@ fieldset p {
     margin:0px;
 }
 #content p {
-    padding:5px;
+    padding-bottom:5px;
 }
 .block {
     display:block;
@@ -62,12 +62,13 @@ em {
         display:inline-block;
         margin-right:10px;
         font-size:1.4em;
+        font-weight:bold;
         padding:7px 15px;
-        color:#FF0052;
+        color:#111!important;
         width:120px;
         text-align:center;
         border:1px solid #f2f2f2;
-        border-top:3px solid #ddd;
+        border-top:3px solid #C7E76C;
         background:#f7f7f7;
         -moz-border-radius-bottomleft:5px;
         -moz-border-radius-bottomright:5px;
@@ -107,7 +108,7 @@ em {
     height:auto !important;
     min-height:700px;
     overflow:hidden;
-    background:#f1f1f1;    
+    _background:#f1f1f1;    
 }
 
 .zebra {
@@ -147,9 +148,6 @@ div.zebra {
     //color:#fff;
 }
 
-.fakks-list {
-    padding:3px 0;
-}
 
 .sub {
     color:#999;
@@ -165,8 +163,8 @@ div.zebra {
     text-align:center;
 }
 
-#content div, .dialog div {
-    padding:5px;
+#content div, .dialog fieldset div {
+    margin:5px;
 }
 
 .left-arrow-icon, .right-arrow-icon {
@@ -195,6 +193,7 @@ legend {
 
 fieldset {
     margin:5px!important;
+    background:#fafafa;
 }
 
 .inner-fieldset {
@@ -238,12 +237,93 @@ fieldset {
 }
 
 .item {
-    border:1px solid #BD9970!important;
-    background:#F7E1B3;
+    border:1px solid #ccc!important;
+    background:#f7f7f7;
     margin-bottom:10px;
+    padding:5px;
 }
 
 .item-for-facebook-coin {
-    background:#D8DFEA;
-    border:1px solid #3B5998!important;
+    background:#EDEFF4;
+    border:1px solid #ccc!important;
+}
+
+.shop-items {
+    border:0px solid red;
+    _background:#f1f1f1;
+}
+
+@font-face {
+    font-family: "freeBooterFont";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/freebooterupdated.woff") format("woff"), url("../fonts/FreebooterUpdated.ttf") format("truetype");
+}
+
+.game-canvas {
+    font-family:freeBooterFont,"Times New Roman",Times,serif;
+    width:760px;
+    background:#f1f1f1;
+}
+
+.game-canvas h1 {
+    padding:10px;
+    margin-bottom:0px;
+}
+
+.mines {
+    padding: 10px;margin:0 10px;
+    width:760px;
+}
+
+.mine {
+    width:228px;
+    background:url(../img/wood-panel.png) no-repeat transparent;
+}
+.mine h2 {
+    margin-bottom:0px;
+    color:#F9E5BE;
+    font-size:2.7em;
+    line-height:0.8em;
+}
+
+.mine-menu-item {
+    display:inline-block;
+    width:230px;
+    height:168px;
+    background:url(../img/mapButtonRumAlley.png) no-repeat transparent;
+    opacity:0.7;
+}
+
+.mine .map-over {
+    position:absolute;
+    display:inline-block;
+    width:230px;
+    height:169px;
+    background:url(../img/map-over.png) no-repeat transparent;
+    display:none;
+    z-index:-1;
+}
+
+.mine a:hover {
+}
+
+.game-button-bg {
+    display:inline-block;
+    width:290;
+    height:72px;
+    background:url(../img/button-bg.png) no-repeat transparent;
+}
+
+.game-button {
+    color:#000!important;
+    background:url(../img/large-button.png) no-repeat transparent;
+    display:inline-block;
+    height:40px;
+    width:278px;
+    text-align:center;
+    font-size:3.1em;
+    line-height:0.8em;
+    position:relative;
+    top:12px;
 }

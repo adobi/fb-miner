@@ -16,7 +16,7 @@ class Minemanager extends Admin_Controller
         
         $this->load->model('Mines', 'mines');
         
-        $data['mines'] = $this->mines->fetchAll();
+        $data['mines'] = $this->mines->fetchAllWithItems();
         
         $this->template->build('minemanager/index', $data);
     }
@@ -137,4 +137,16 @@ class Minemanager extends Admin_Controller
         
         redirect($_SERVER['HTTP_REFERER']);
     }
+    
+    public function update_item() 
+    {
+        $id = $this->uri->segment(3);
+        
+        if ($_POST) {
+            
+            $this->load->model('Minehasitems', 'mineitems');
+            
+            $this->mineitems->update($_POST, $id);
+        }
+    }    
 }

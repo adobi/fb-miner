@@ -22,6 +22,9 @@ class Shopmanager extends Admin_Controller
         
         $data['shops'] = $this->shops->fetchAll();
         
+        $this->load->model('Shophasitems', 'shopitems');
+        $data['shop_items'] = $this->shopitems->fetchForShop($data['shops'][0]->id);        
+
         $this->template->build('shopmanager/index', $data);
     }
     
@@ -83,7 +86,13 @@ class Shopmanager extends Admin_Controller
         
         $this->load->model('Shopitems', 'items');
         
-        $data['items'] = $this->items->toAssocArray('id', 'name', $this->items->fetchAll());
+        $items = $this->items->fetchAllNotInShop($shop);
+        $data['items'] = $this->items->toAssocArray('id', 'name', $items);
+        if (!$items) {
+            
+            echo '<div class = "error">No available items</div>'; 
+            die;
+        }
         
         $this->form_validation->set_rules('shop_item_id', 'Shop item', 'trim|required');
         $this->form_validation->set_rules('quantity', 'Quantity', 'trim|required');
@@ -141,5 +150,19 @@ class Shopmanager extends Admin_Controller
         }
         
         redirect($_SERVER['HTTP_REFERER']);
-    }       
+    } 
+    
+    public function update_item() 
+    {
+        $id = $this->uri->segment(3);
+        
+        if ($_POST) {
+            
+            $this->load->model('Shophasitems', 'shopitems');
+            
+            $this->shopitems->update($_POST, $id);
+        }
+        
+        die;
+    }      
 }

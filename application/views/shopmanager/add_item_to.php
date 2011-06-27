@@ -9,6 +9,11 @@
             <input type="text" name="quantity" value="" id="quantity" />
         </p>
         <p>
+            <label for="is_free" class = "block">Is free</label>
+            <input type="checkbox" value = "1" name = "is_free" />
+        </p>    
+        <p>&nbsp;</p>        
+        <p>
             <button>Save</button>
         </p>    
     <?= form_close() ?>

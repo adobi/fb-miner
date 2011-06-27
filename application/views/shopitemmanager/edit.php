@@ -10,12 +10,13 @@
         </p>
         <p>
             <label for="price" class = "block">Price</label>
-            <input type="text" name = "price" value = "<?= $current_item ? $current_item->price  : ''?>" id = "price" /> $
+            <input type="text" name = "price" value = "<?= $current_item ? $current_item->price  : ''?>" id = "price" size = "5"/> $
         </p>
         <p>
             <label for="fb_coin_price" class = "block">Facebook coin price</label>
-            <input type="text" name = "fb_coin_price" value = "<?= $current_item ? $current_item->fb_coin_price  : ''?>" id = "fb_coin_price" />
-        </p>        
+            <input type="text" name = "fb_coin_price" value = "<?= $current_item ? $current_item->fb_coin_price  : ''?>" id = "fb_coin_price" size = "5"/>
+        </p>    
+
         <p>
             <button>Save</button>
         </p>

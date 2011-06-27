@@ -31,4 +31,16 @@ class Shopitems extends MY_Model
         }
         return $result;
     }
+    
+    public function fetchAllNotInShop($shop) 
+    {
+        if (!$shop) {
+            
+            return false;
+        }
+        
+        $result = $this->execute("select * from shop_item where id not in (select shop_item_id from shop_has_item where shop_id = $shop)");
+        
+        return $result;
+    }
 }

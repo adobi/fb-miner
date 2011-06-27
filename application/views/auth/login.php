@@ -19,11 +19,7 @@
                 <label for="password">Jelszó</label><br />
                 <input type="password" class = "text" name="password" value="" id="password" />
             </p>
-            <p>
-                <label for="remember_me">
-                    <input type="checkbox" name="remember_me" value="" id="remember_me"> Emlékezz rám
-                </label>
-            </p>
+
             <p>
                 <button>Belépés</button>
             </p>
