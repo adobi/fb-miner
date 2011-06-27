@@ -3,7 +3,7 @@ body {
 }
 
 a {
-	text-decoration: none; padding:3px; color: #0099cc!important;
+	text-decoration: none; padding:3px; color: #195695!important;
 }
 
 a:hover{
@@ -64,12 +64,12 @@ em {
         font-size:1.4em;
         font-weight:bold;
         padding:7px 15px;
-        color:#111!important;
+        color:#4C90C6 !important;
         width:120px;
         text-align:center;
-        border:1px solid #f2f2f2;
-        border-top:3px solid #C7E76C;
-        background:#f7f7f7;
+        //border:1px solid #f2f2f2;
+        //border-top:3px solid #C7E76C;
+        background:#DBEDF5;
         -moz-border-radius-bottomleft:5px;
         -moz-border-radius-bottomright:5px;
     }
@@ -188,7 +188,7 @@ div.zebra {
 }
 legend {
     font-size:16px;
-    color:#666;
+    color:#554444;
 }
 
 fieldset {
@@ -237,15 +237,15 @@ fieldset {
 }
 
 .item {
-    border:1px solid #ccc!important;
-    background:#f7f7f7;
+    //border:1px solid #ccc!important;
+    background:#ededed;
     margin-bottom:10px;
     padding:5px;
 }
 
 .item-for-facebook-coin {
     background:#EDEFF4;
-    border:1px solid #ccc!important;
+    //border:1px solid #ccc!important;
 }
 
 .shop-items {
@@ -329,7 +329,7 @@ fieldset {
 }
 
 .free {
-    background:#E85A58;
+    background:#79B94A;
     color:#fff;
     padding:0 3px;
 }

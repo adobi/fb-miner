@@ -43,7 +43,7 @@
     
     <?php if ($mines): ?>
         <?php foreach ($mines as $item): ?>
-            <div class="span-23" style = "background:#efefef">
+            <div class="span-23" style = "background_:#f5f5f5; border-bottom:1px solid #ccc">
                 
             <div class = "span-23">
                 

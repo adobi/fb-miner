@@ -126,15 +126,16 @@ Admin.UpdateShopItem = function () {
             
         $.post(form.attr('action'), data, function() {
             var freeLabel = self.parents('.item:first').find('.free');
-
-            if (freeLabel.length) {
+            
+            if (form.find(':checkbox[name=is_free]')) {
                 
-                freeLabel.remove();
-            } else {
-                self.parents('.item:first').find('.name-and-type').prepend('<span class = "free">FREE</span>');
+                if (freeLabel.length) {
+                    
+                    freeLabel.remove();
+                } else {
+                    self.parents('.item:first').find('.name-and-type').prepend('<span class = "free">FREE</span>');
+                }
             }
-            
-            
         });
         
         return false;         

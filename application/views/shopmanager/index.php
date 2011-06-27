@@ -41,7 +41,7 @@
     </p>
 
     <?php if ($types): ?>
-        <p style = "background:#f1f1f1; padding:10px; margin-bottom:10px;" class = "round">
+        <p style = "background:#ededed; padding:10px; margin-bottom:10px;" class = "round">
             <a href="<?= base_url() ?>shopmanager/"><strong>all</strong></a>
             <?php foreach ($types as $item): ?>
                 <a href="<?= base_url() ?>shopmanager/index/<?= $item->id ?>"><?= $item->name ?></a>

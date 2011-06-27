@@ -6,7 +6,7 @@
   position: relative;
   height: 27px;
   cursor: pointer;
-  overflow: hidden; }
+  overflow: hidden; display:inline-block; position:relative; top:10px;}
   .iPhoneCheckContainer input {
     position: absolute;
     top: 5px;
