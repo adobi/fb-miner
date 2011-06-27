@@ -41,10 +41,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '10.194.111.8';
-$db['default']['username'] = 'user_73ebffda';
-$db['default']['password'] = 'y,r-u6bZY1l3W!';
-$db['default']['database'] = 'db_73ebffda';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';
+$db['default']['password'] = '';
+$db['default']['database'] = 'miner';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
