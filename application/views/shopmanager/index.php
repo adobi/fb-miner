@@ -92,7 +92,14 @@
                 <?php if ($shop_items): ?>
                     <?php foreach ($shop_items as $item): ?>
                         <div class = "item span-5 round <?= $item->fb_coin_price ? ' item-for-facebook-coin' : '' ?>">
-                            <p><strong><?= $item->name ?>(<?= $item->item_type ?>)</strong></p>
+                            <p>
+                                <strong class = "name-and-type">
+                                    <?php if ($item->is_free): ?>
+                                        <span class = "free">FREE</span>
+                                    <?php endif ?>                                    
+                                    <?= $item->name ?> (<?= $item->item_type ?>)
+                                </strong>
+                            </p>
                             
                             <?= form_open(base_url().'shopmanager/update_item/'.$item->id) ?>
                                 <p>

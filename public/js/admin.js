@@ -35,7 +35,6 @@ Admin.Dialog = function() {
                     }
 
                     if ($('.datepicker').length) {
-                        console.log('datepicker found');
                         App.Datepicker();
                     }
                     
@@ -122,9 +121,19 @@ Admin.UpdateShopItem = function () {
     $('body').delegate('.update-item', 'click', function() {
         
         var self = $(this),
-            form = self.parents('form:first');
+            form = self.parents('form:first'),
+            data = form.serialize();
             
-        $.post(form.attr('action'), form.serialize(), function() {
+        $.post(form.attr('action'), data, function() {
+            var freeLabel = self.parents('.item:first').find('.free');
+
+            if (freeLabel.length) {
+                
+                freeLabel.remove();
+            } else {
+                self.parents('.item:first').find('.name-and-type').prepend('<span class = "free">FREE</span>');
+            }
+            
             
         });
         

@@ -327,3 +327,9 @@ fieldset {
     position:relative;
     top:12px;
 }
+
+.free {
+    background:#E85A58;
+    color:#fff;
+    padding:0 3px;
+}

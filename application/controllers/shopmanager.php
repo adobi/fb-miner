@@ -159,8 +159,12 @@ class Shopmanager extends Admin_Controller
         if ($_POST) {
             
             $this->load->model('Shophasitems', 'shopitems');
+
+            if (!array_key_exists('is_free', $_POST)) {
+                $_POST['is_free'] = 0;
+            }            
             
-            $this->shopitems->update($_POST, $id);
+            echo $this->shopitems->update($_POST, $id);
         }
         
         die;

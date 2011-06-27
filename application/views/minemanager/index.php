@@ -43,23 +43,33 @@
     
     <?php if ($mines): ?>
         <?php foreach ($mines as $item): ?>
+            <div class="span-23" style = "background:#efefef">
+                
             <div class = "span-23">
                 
                 <div class = "item span-5 round">
-                    <strong><?= $item->name ?></strong>
+                    <strong>
+                        <?php if ($item->is_free): ?>
+                            <span class = "free">FREE</span>
+                        <?php endif ?>
+                        <?= $item->name ?>
+                    </strong>
                     
                     <p class = "text-right">
                         <!-- 
                         <a href="<?= base_url() ?>minemanager/add_item_to/<?= $item->id ?>" rel = "dialog" title = "Add item to <?= $item->name ?>">add item</a>
                         <a href="<?= base_url() ?>minemanager/items_of/<?= $item->id ?>" rel = "dialog" title = "<?= $item->name ?> items" dialog_id = "mine_<?= $item->id ?>">items</a> -->
+                        <a href="<?= base_url() ?>minemanager/add_item_to/<?= $item->id ?>" rel = "dialog" title = "Add item to <?= $item->name ?>"><strong>add item</strong></a>
                         <a href="<?= base_url() ?>minemanager/edit/<?= $item->id ?>" rel = "dialog" title = "Edit mine <?= $item->name ?>">edit</a>
                         <a href="<?= base_url() ?>minemanager/delete/<?= $item->id ?>" class = "delete">delete</a>
                     </p>
                 </div>
                 <div class = "shop-items span-17 round last">
+                    <!-- 
                     <p>
                         <a href="<?= base_url() ?>minemanager/add_item_to/<?= $item->id ?>" rel = "dialog" title = "Add item to <?= $item->name ?>">add item</a>
                     </p>
+                     -->
                     <?php if ($item->items): ?>
                         <?php foreach ($item->items as $mine_item): ?>
                             <div class = "item span-5 round">
@@ -81,6 +91,7 @@
                         <em>no items</em>
                     <?php endif ?>                
                 </div>            
+            </div>
             </div>
 
         <?php endforeach ?>

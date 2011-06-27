@@ -40,6 +40,11 @@ class Minemanager extends Admin_Controller
         if ($this->form_validation->run()) {
         
             if ($id) {
+                
+                if (!array_key_exists('is_free', $_POST)) {
+                    $_POST['is_free'] = 0;
+                }
+                
                 $this->model->update($_POST, $id);
             } else {
                 $this->model->insert($_POST);
