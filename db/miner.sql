@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50133
 File Encoding         : 65001
 
-Date: 2011-06-27 16:53:18
+Date: 2011-06-28 16:04:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -175,11 +175,12 @@ CREATE TABLE `user` (
   `fb_id` varchar(100) DEFAULT NULL,
   `cash` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
+INSERT INTO `user` VALUES ('1', 'adobi', 'adobi', '0');
 
 -- ----------------------------
 -- Table structure for `user_has_mine_item`
@@ -193,7 +194,7 @@ CREATE TABLE `user_has_mine_item` (
   PRIMARY KEY (`id`),
   KEY `fk_user_sold_item_user` (`user_id`),
   KEY `fk_user_sold_item_mine_has_item` (`mine_has_item_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_has_mine_item
@@ -211,11 +212,14 @@ CREATE TABLE `user_has_shop_item` (
   PRIMARY KEY (`id`),
   KEY `fk_user_bought_item_shop_item_id` (`shop_item_id`),
   KEY `fk_user_bought_item_user` (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_has_shop_item
 -- ----------------------------
+INSERT INTO `user_has_shop_item` VALUES ('1', '1', '1', '1');
+INSERT INTO `user_has_shop_item` VALUES ('2', '1', '2', '1');
+INSERT INTO `user_has_shop_item` VALUES ('3', '1', '3', '1');
 
 -- ----------------------------
 -- Table structure for `user_mine`
@@ -228,11 +232,14 @@ CREATE TABLE `user_mine` (
   PRIMARY KEY (`id`),
   KEY `fk_user_mine_user` (`user_id`),
   KEY `fk_user_mine_mine` (`mine_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_mine
 -- ----------------------------
+INSERT INTO `user_mine` VALUES ('1', '1', '1');
+INSERT INTO `user_mine` VALUES ('2', '1', '2');
+INSERT INTO `user_mine` VALUES ('3', '1', '3');
 
 -- ----------------------------
 -- Table structure for `user_mined_item_log`
