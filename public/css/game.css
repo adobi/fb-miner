@@ -1,0 +1,133 @@
+
+@font-face {
+    font-family: "freeBooterFont";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/freebooterupdated.woff") format("woff"), url("../fonts/FreebooterUpdated.ttf") format("truetype");
+}
+
+.game-canvas {
+    font-family:freeBooterFont,"Times New Roman",Times,serif;
+    width:760px;
+    background:#f1f1f1;
+    font-size:24px;
+}
+
+#colorbox {
+    font-family:freeBooterFont,"Times New Roman",Times,serif;
+    font-size:24px;
+}
+
+.game-canvas h1 {
+    padding:10px;
+    margin-bottom:0px;
+    font-size:1.6em;
+}
+
+.game-canvas p {
+    margin:0px!important;
+    padding-left:10px;
+    font-size:1.1em;
+}
+
+.game-inner-wrapper {
+    padding:0px!important;margin:0px!important;width:760px!important;
+}
+
+.mines {
+    padding: 10px;margin:0 10px;
+    width:760px;
+}
+
+.mine, .tool {
+    width:228px;
+    background:url(../img/wood-panel.png) no-repeat transparent;
+}
+
+.mine {
+    opacity:0.7;
+}
+
+.active-mine {
+    opacity:1!important;
+}
+
+.mine h2, .tool h2 {
+    margin-bottom:0px;
+    color:#F9E5BE;
+    font-size:1.3em;
+    line-height:0.8em;
+}
+
+.mine-menu-item {
+    display:inline-block;
+    width:230px;
+    height:168px;
+    background:url(../img/mapButtonRumAlley.png) no-repeat transparent;
+    opacity:0.7;
+}
+
+.mine .map-over {
+    position:absolute;
+    display:inline-block;
+    width:230px;
+    height:169px;
+    background:url(../img/map-over.png) no-repeat transparent;
+    display:none;
+    z-index:-1;
+}
+
+.mine a:hover {
+}
+
+.game-button-bg {
+    display:inline-block;
+    width:290;
+    height:72px;
+    background:url(../img/button-bg.png) no-repeat transparent;
+    color:#F9E5BE;
+}
+
+.game-button {
+    color:#000!important;
+    background:url(../img/large-button.png) no-repeat transparent;
+    display:inline-block;
+    height:40px;
+    width:278px;
+    text-align:center;
+    font-size:1.6em;
+    line-height:0.8em;
+    position:relative;
+    top:12px;
+}
+
+.game-canvas h2 {
+    padding:5px;
+}
+
+.mine-map {
+    background: url(../img/BottomNav_background.png) no-repeat transparent;
+    height:84px;
+    width:760px;margin:0px!important; margin-bottom:10px!important;padding:0px;
+}
+
+.mine-map h2 {
+    color:#F9E5BE;
+}
+
+.select-item {
+    display:inline-block;float:right;width:180px; text-align:center;   
+    color:#000!important; font-size:0.8em;position:relative;top:5px;
+}
+
+.start-mining-label {
+    color:#000; font-size:0.8em;position:relative;float:right;right: 60px;top:5px;
+}
+
+.not-pending-item {
+    opacity:0.7;
+}
+
+.pending-item {
+    opacity:1;
+}

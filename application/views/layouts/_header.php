@@ -14,7 +14,10 @@
         <link rel="stylesheet" href="<?= base_url() ?>css/jquery-ui-1.8.7.custom.css" type="text/css" media="screen"charset="utf-8">
         <link rel="stylesheet" href="<?= base_url() ?>css/page.css" type="text/css" media="screen"charset="utf-8">
         <link rel="stylesheet" href="<?= base_url() ?>css/iphone-style-checkboxes.css" type="text/css" media="screen" charset="utf-8">
-
+        <link rel="stylesheet" href="<?= base_url() ?>css/colorbox.css" type="text/css" media="screen" charset="utf-8">
+        <?php if (!$this->session->userdata('current_user_id') && $this->uri->segment(1) !== 'auth'): ?>
+            <link rel="stylesheet" href="<?= base_url() ?>css/game.css?<?= time() ?>" type="text/css" media="screen"charset="utf-8">
+        <?php endif ?>
         <!--
 		<script type="text/javascript" charset="utf-8" src = "http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
         <script type="text/javascript" charset="utf-8" src = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.js"></script>
@@ -23,9 +26,14 @@
         <script type="text/javascript" charset="utf-8" src = "<?= base_url() ?>js/jquery-ui.min.js"></script>
         <script type="text/javascript" charset="utf-8" src = "<?= base_url() ?>js/jquery.cookie.js"></script>
         <script type="text/javascript" charset="utf-8" src = "<?= base_url() ?>js/iphone-style-checkboxes.js"></script>
+        <script type="text/javascript" charset="utf-8" src = "<?= base_url() ?>js/colorbox.js"></script>
         
         <?php if ($this->session->userdata('current_user_id') || $this->uri->segment(1) === 'auth'): ?>
             <script type="text/javascript" charset="utf-8" src = "<?= base_url() ?>js/admin.js"></script>
+        <?php endif ?>
+
+        <?php if (!$this->session->userdata('current_user_id') && $this->uri->segment(1) !== 'auth'): ?>
+            <script type="text/javascript" charset="utf-8" src = "<?= base_url() ?>js/game.js?<?= time() ?>"></script>
         <?php endif ?>
 
         <script type="text/javascript">
@@ -57,7 +65,7 @@
             			    </li>
 
         			        <li>
-        			            <a href="<?= base_url(); ?>auth/logout">logout <span style="font-family:tahoma">&raquo;</span></a>
+        			            <a href="<?= base_url(); ?>auth/logout">logout <span style="font-family:tahoma; font-size:0.8em;">&raquo;</span></a>
         			        </li>			        
             			</ul>
         		    </div>

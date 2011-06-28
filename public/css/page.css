@@ -47,31 +47,38 @@ em {
 
 #header {
 /*    background: #f2fcff;*/
-    //background:#f5f5f5;
     //box-shadow:0 2px 8px #AAAAAA;
     margin-bottom:10px;
 }
     
     #header-menu {
         list-style-type:none;
-        margin-top:0px;
+        -moz-border-radius-bottomleft:5px;
+        -moz-border-radius-bottomright:5px;    
+        background:#DBEDF5;
+        width:630px;
+        margin:0 auto;
+        display:block;
     }
 
     #header-menu li a{
         float:left;
         display:inline-block;
-        margin-right:10px;
         font-size:1.4em;
         font-weight:bold;
-        padding:7px 15px;
+        padding:12px 18px;
         color:#4C90C6 !important;
         width:120px;
         text-align:center;
         //border:1px solid #f2f2f2;
-        //border-top:3px solid #C7E76C;
+        //border-top:3px solid #DBEDF5;
         background:#DBEDF5;
-        -moz-border-radius-bottomleft:5px;
-        -moz-border-radius-bottomright:5px;
+        border-right:1px solid #ccc;
+    }
+    
+    #header-menu li:last-child a{
+        border-right:0;
+        color:#111!important;
     }
 
 #sidebar {
@@ -253,80 +260,6 @@ fieldset {
     _background:#f1f1f1;
 }
 
-@font-face {
-    font-family: "freeBooterFont";
-    font-style: normal;
-    font-weight: normal;
-    src: url("../fonts/freebooterupdated.woff") format("woff"), url("../fonts/FreebooterUpdated.ttf") format("truetype");
-}
-
-.game-canvas {
-    font-family:freeBooterFont,"Times New Roman",Times,serif;
-    width:760px;
-    background:#f1f1f1;
-}
-
-.game-canvas h1 {
-    padding:10px;
-    margin-bottom:0px;
-}
-
-.mines {
-    padding: 10px;margin:0 10px;
-    width:760px;
-}
-
-.mine {
-    width:228px;
-    background:url(../img/wood-panel.png) no-repeat transparent;
-}
-.mine h2 {
-    margin-bottom:0px;
-    color:#F9E5BE;
-    font-size:2.7em;
-    line-height:0.8em;
-}
-
-.mine-menu-item {
-    display:inline-block;
-    width:230px;
-    height:168px;
-    background:url(../img/mapButtonRumAlley.png) no-repeat transparent;
-    opacity:0.7;
-}
-
-.mine .map-over {
-    position:absolute;
-    display:inline-block;
-    width:230px;
-    height:169px;
-    background:url(../img/map-over.png) no-repeat transparent;
-    display:none;
-    z-index:-1;
-}
-
-.mine a:hover {
-}
-
-.game-button-bg {
-    display:inline-block;
-    width:290;
-    height:72px;
-    background:url(../img/button-bg.png) no-repeat transparent;
-}
-
-.game-button {
-    color:#000!important;
-    background:url(../img/large-button.png) no-repeat transparent;
-    display:inline-block;
-    height:40px;
-    width:278px;
-    text-align:center;
-    font-size:3.1em;
-    line-height:0.8em;
-    position:relative;
-    top:12px;
-}
 
 .free {
     background:#79B94A;

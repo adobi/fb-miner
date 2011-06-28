@@ -12,5 +12,5 @@ App.MineMenuHover = function() {
 };
 
 $(function() {
-    App.MineMenuHover(); 
+    
 });
