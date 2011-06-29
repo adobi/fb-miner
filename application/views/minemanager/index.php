@@ -21,7 +21,7 @@
     <?php if ($items): ?>
         <?php foreach ($items as $item): ?>
             <div class = "item span-4 round">
-                <strong><?= $item->name ?></strong>
+                <strong><?= $item->name ?></strong> <?= $item->price ?>$ / unit
                 
                 <p class = "text-right">
                     <a href="<?= base_url() ?>mineitemmanager/edit/<?= $item->id ?>" rel = "dialog" title = "Edit mine item">edit</a>

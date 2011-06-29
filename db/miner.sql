@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50133
 File Encoding         : 65001
 
-Date: 2011-06-28 16:04:12
+Date: 2011-06-29 15:10:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -137,6 +137,7 @@ CREATE TABLE `shop_item` (
   `price` int(11) DEFAULT NULL,
   `shop_item_type_id` int(11) DEFAULT NULL,
   `fb_coin_price` int(11) DEFAULT NULL,
+  `speed` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_shop_item_shop_item_type` (`shop_item_type_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
@@ -144,9 +145,9 @@ CREATE TABLE `shop_item` (
 -- ----------------------------
 -- Records of shop_item
 -- ----------------------------
-INSERT INTO `shop_item` VALUES ('1', 'ekekapa', '1200', '2', null);
-INSERT INTO `shop_item` VALUES ('2', 'robokapa', '0', '2', '100');
-INSERT INTO `shop_item` VALUES ('3', 'pizza', '10', '1', '0');
+INSERT INTO `shop_item` VALUES ('1', 'ekekapa', '1200', '2', '0', '15');
+INSERT INTO `shop_item` VALUES ('2', 'robokapa', '0', '2', '100', '10');
+INSERT INTO `shop_item` VALUES ('3', 'pizza', '10', '1', '0', null);
 
 -- ----------------------------
 -- Table structure for `shop_item_type`
@@ -180,7 +181,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'adobi', 'adobi', '0');
+INSERT INTO `user` VALUES ('1', 'adobi', 'adobi', '1700');
 
 -- ----------------------------
 -- Table structure for `user_has_mine_item`
@@ -212,7 +213,7 @@ CREATE TABLE `user_has_shop_item` (
   PRIMARY KEY (`id`),
   KEY `fk_user_bought_item_shop_item_id` (`shop_item_id`),
   KEY `fk_user_bought_item_user` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_has_shop_item
@@ -249,16 +250,19 @@ CREATE TABLE `user_mined_item_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `mine_has_item_id` int(11) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `created` datetime DEFAULT NULL,
+  `started` timestamp NULL DEFAULT NULL,
+  `finished` timestamp NULL DEFAULT NULL,
+  `users_item_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_user_mined_item_log_user` (`user_id`),
-  KEY `fk_user_mined_item_log_mine_has_item` (`mine_has_item_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  KEY `fk_user_mined_item_log_mine_has_item` (`mine_has_item_id`),
+  KEY `fk_user_mined_item_log_user_has_shop_item` (`users_item_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_mined_item_log
 -- ----------------------------
+INSERT INTO `user_mined_item_log` VALUES ('19', '1', '6', '2011-06-29 14:37:16', '2011-06-29 14:39:46', '1');
 
 -- ----------------------------
 -- Table structure for `user_purchase_log`

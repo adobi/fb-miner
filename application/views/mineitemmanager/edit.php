@@ -7,7 +7,7 @@
         </p>
         <p>
             <label for="price" class = "block">Price</label>
-                <input type="text" name="price" value="<?= $current_item ? $current_item->price : '' ?>" id="price" />$ / unit
+                <input type="text" name="price" value="<?= $current_item ? $current_item->price : '' ?>" id="price" size = "10"/> $ / unit
         </p>        
         <p>
             <button>Save</button>
