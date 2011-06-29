@@ -39,7 +39,7 @@
     width:760px;
 }
 
-.mine, .tool {
+.mine, .stuff-item {
     width:228px;
     background:url(../img/wood-panel.png) no-repeat transparent;
 }
@@ -52,7 +52,7 @@
     opacity:1!important;
 }
 
-.mine h2, .tool h2 {
+.mine h2, .stuff-item h2 {
     margin-bottom:0px;
     color:#F9E5BE;
     font-size:1.3em;
@@ -105,17 +105,17 @@
     padding:5px;
 }
 
-.mine-map {
+.mine-map, .tool {
     background: url(../img/BottomNav_background.png) no-repeat transparent;
     height:84px;
     width:760px;margin:0px!important; margin-bottom:10px!important;padding:0px;
 }
 
-.mine-map h2 {
+.mine-map h2, .tool h2 {
     color:#F9E5BE;
 }
 
-.select-item {
+.select-mine-item, .select-tool {
     display:inline-block;float:right;width:180px; text-align:center;   
     color:#000!important; font-size:0.8em;position:relative;top:5px;
 }

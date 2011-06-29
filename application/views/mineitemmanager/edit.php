@@ -7,8 +7,9 @@
         </p>
         <p>
             <label for="price" class = "block">Price</label>
-            <input type="text" name="price" value="<?= $current_item ? $current_item->price : '' ?>" id="price" />
-        </p>        <p>
+                <input type="text" name="price" value="<?= $current_item ? $current_item->price : '' ?>" id="price" />$ / unit
+        </p>        
+        <p>
             <button>Save</button>
         </p>
     <?= form_close(); ?>

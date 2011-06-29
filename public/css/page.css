@@ -55,7 +55,7 @@ em {
         list-style-type:none;
         -moz-border-radius-bottomleft:5px;
         -moz-border-radius-bottomright:5px;    
-        background:#DBEDF5;
+        background:#f1f1f1;
         width:630px;
         margin:0 auto;
         display:block;
@@ -72,7 +72,7 @@ em {
         text-align:center;
         //border:1px solid #f2f2f2;
         //border-top:3px solid #DBEDF5;
-        background:#DBEDF5;
+        //background:#DBEDF5;
         border-right:1px solid #ccc;
     }
     
@@ -251,8 +251,8 @@ fieldset {
 }
 
 .item-for-facebook-coin {
-    background:#EDEFF4;
-    //border:1px solid #ccc!important;
+    background:#D8DFEA;
+    //border:1px solid #664D7C!important;
 }
 
 .shop-items {

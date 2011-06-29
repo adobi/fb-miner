@@ -25,7 +25,7 @@
                 
                 <p class = "text-right">
                     <a href="<?= base_url() ?>shopitemtypemanager/edit/<?= $item->id ?>" rel = "dialog" title = "Edit shop item type">edit</a>
-                    <a href="<?= base_url() ?>shopitemtypemanager/delete/<?= $item->id ?>" class = "delete">delete</a>
+                    <!-- <a href="<?= base_url() ?>shopitemtypemanager/delete/<?= $item->id ?>" class = "delete">delete</a> -->
                 </p>
             </div>
         <?php endforeach ?>
