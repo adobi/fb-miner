@@ -27,7 +27,8 @@
         <script type="text/javascript" charset="utf-8" src = "<?= base_url() ?>js/jquery.cookie.js"></script>
         <script type="text/javascript" charset="utf-8" src = "<?= base_url() ?>js/iphone-style-checkboxes.js"></script>
         <script type="text/javascript" charset="utf-8" src = "<?= base_url() ?>js/colorbox.js"></script>
-        
+        <script type="text/javascript" src = "https://raw.github.com/SamWM/jQuery-Plugins/master/numeric/jquery.numeric.js"></script>
+
         <?php if ($this->session->userdata('current_user_id') || $this->uri->segment(1) === 'auth'): ?>
             <script type="text/javascript" charset="utf-8" src = "<?= base_url() ?>js/admin.js"></script>
         <?php endif ?>

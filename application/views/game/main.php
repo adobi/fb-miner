@@ -18,7 +18,7 @@
     <?php if ($items): ?>
         <?php foreach ($items as $item): ?>
             <div class = "span-6 stuff-item">
-                <h2><?= $item->item_name ?> (<?= $item->item_type ?>)</h2>
+                <h2><?= strtoupper($item->item_type) ?> <?= $item->item_name ?> (<?= $item->quantity ?>) </h2>
             </div>
         <?php endforeach ?>
     <?php endif ?>

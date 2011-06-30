@@ -131,3 +131,7 @@
 .pending-item {
     opacity:1;
 }
+
+.error-message {
+    color:#FD6768;padding:0px;
+}

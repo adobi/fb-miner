@@ -45,5 +45,26 @@ class Shophasitems extends MY_Model
         );
         
         return $result;
-    }      
+    } 
+    
+    /**
+     * az uzlet itemjei kozott megkeres egy itemet az idje szerint
+     *
+     * @param string $itemId 
+     * @return array
+     * @author Dobi Attila
+     */
+    public function findByItem($itemId) 
+    {
+        if (!$itemId) {
+            
+            return false;
+        }
+        
+        $result = $this->fetchRows(
+            array('where'=>array('shop_item_id'=>$itemId)), true
+        );
+        
+        return $result;
+    }     
 }

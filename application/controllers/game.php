@@ -272,5 +272,166 @@ class Game extends Game_Controller
         $currentUser = $this->session->userdata('player');
         $this->template->build('game/shop', $data);
     }
+    
+    /**
+     * adott termekbol valaszt
+     *
+     * @return void
+     * @author Dobi Attila
+     */
+    public function buy()
+    {
+        $data = array();
+        
+        $id = $this->uri->segment(3);
+        
+        if (!$id) {
+            echo '<div class = "error"> No item selected!</div>';
+            die;
+        }
+        
+        $this->load->model('Shophasitems', 'shopitems');
+        
+        $shopitem = $this->shopitems->find($id);
+        
+        if (!$shopitem) {
+            echo '<div class = "error">There is no such item in the shop!</div>';
+            die;
+        }
+        
+        $this->load->model('Shopitems', 'items');
+        
+        $item = $this->items->find($shopitem->shop_item_id);
+        
+        $data['shopitem'] = $shopitem;
+        $data['item'] = $item;
+        
+        $this->template->build('game/buy', $data);
+    }
+    
+    /**
+     * vegrehajta az adott vasarlast
+     *
+     * @return void
+     * @author Dobi Attila
+     */
+    public function buy_item()
+    {
+        $response = array();
+        $response['message'] = '';
+        
+        if ($_POST || !$_POST['quantity']) {
+            
+            $id = $this->uri->segment(3);
+            
+            $error = false;
+            
+            if (!$id) {
+                
+                $response['message'] .= '<p class = "error">No item selected</p>';
+                $error = true;
+            }
+            
+            $this->load->model('Shopitems', 'items');
+            $this->load->model('Shophasitems', 'shopitems');
+        
+            $shopitem = $this->shopitems->findByItem($id);
+            
+            $item = $this->items->find($id);
+            
+            if (!$item) {
+                $error = true;
+                $response['message'] .= '<p class = "error">There is no such item</p>';
+            }
+            
+            if (!$error) {
+                
+                $quantity = $_POST['quantity'];
+                
+                // levonni a shop_itemek kozul
+                $this->shopitems->update(array('quantity'=>($shopitem->quantity - $quantity)), $shopitem->id);
+                
+                // hozzaadni a user_itemekhez
+                $this->load->model('Usershopitems', 'useritems');
+                
+                $userId = $this->session->userdata('player')->id;
+                
+                $useritem = $this->useritems->findByUserAndItem($userId, $id);
+                
+                if ($useritem) {
+                    // ha van mar ilyen itemje, akkor csak frissiteni kell a mennyiseget
+                    $this->useritems->update(array('quantity'=>($useritem->quantity + $quantity)), $useritem->id);
+                    
+                } else {
+                    
+                    // fel kell venni az itemjei koze
+                    $this->useritems->insert(array('quantity'=>$quantity, 'user_id'=>$userId, 'shop_item_id'=>$id));
+                }
+                
+                // TODO purchase itemhez is bevenni
+                
+                $this->load->model('Userpurchaselog', 'purchase');
+                $purchase = array(
+                    'user_id'=>$userId, 
+                    'quantity'=>$quantity, 
+                    'created'=>date('Y-m-d H:i:s'), 
+                    'shop_item_id'=>$id
+                );
+                
+                // arat levonni a user penzebol
+                if (!$shopitem->is_free) {
+                    
+                    if ($item->price) {
+                        
+                        $this->load->model('Users', 'user');
+                        $cash = $this->session->userdata('player')->cash;
+                        
+                        if ($cash >= $quantity * $item->price) {
+                            
+                            $cash = $cash - $quantity * $item->price;
+                            
+                            $this->user->update(array('cash'=>$cash), $userId);
+                            
+                            $response['cash'] = $cash;
+                            
+                            $purchase['price'] = $quantity * $item->price;
+                            $purchase['purchase_type'] = 1; // penzes
+                            
+                            $this->purchase->insert($purchase);
+                        } else {
+                            
+                            $response['code'] = 0;
+                            $response['message'] = '<p class "error">You don\'t have enough money</p>';
+                        }
+                    }
+                    
+                    if ($item->fb_coin_price) {
+                        
+                        // TODO fb api-s mokazas
+                        
+                        $purchase['purchase_type'] = 2; // facebookos
+                        
+                        $this->purchase->insert($purchase);
+                    }
+                } else {
+                    
+                    $purchase['purchase_type'] = 1; // ingyenes
+                                        
+                    $this->purchase->insert($purchase);
+                }
+                $response['code'] = 1;
+                $response['message'] = '<p>Congratulation!</p>';
+            }
+            
+        } else {
+            
+            $response['code'] = 0;
+            $response['message'] = '<p class = "error">This method is not permitted</p>';
+        }
+
+        echo json_encode($response);
+        
+        die;
+    }
 
 }

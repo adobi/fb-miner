@@ -66,4 +66,26 @@ class Usershopitems extends MY_Model
         return $result;
     }
     
+    /**
+     * adott userhez adott itemet megnez, hogy van a neki olyanja
+     *
+     * @param string $userId 
+     * @param string $itemId 
+     * @return array
+     * @author Dobi Attila
+     */
+    public function findByUserAndItem($userId, $itemId)
+    {
+        if (!$userId || !$itemId) {
+            
+            return false;
+        }
+        
+        $result = $this->fetchRows(
+            array('where'=>array('user_id'=>$userId, 'shop_item_id'=>$itemId)), true
+        );
+        
+        return $result;
+    }
+    
 }
