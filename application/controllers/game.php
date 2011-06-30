@@ -402,6 +402,7 @@ class Game extends Game_Controller
                             
                             $response['code'] = 0;
                             $response['message'] = '<p class "error">You don\'t have enough money</p>';
+                            $error = true;
                         }
                     }
                     
@@ -419,8 +420,12 @@ class Game extends Game_Controller
                                         
                     $this->purchase->insert($purchase);
                 }
-                $response['code'] = 1;
-                $response['message'] = '<p>Congratulation!</p>';
+                
+                if (!$error) {
+                    
+                    $response['code'] = 1;
+                    $response['message'] = '<p>Congratulation!</p>';
+                }
             }
             
         } else {

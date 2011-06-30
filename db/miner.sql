@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50133
 File Encoding         : 65001
 
-Date: 2011-06-29 15:10:39
+Date: 2011-06-30 15:17:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -118,14 +118,16 @@ CREATE TABLE `shop_has_item` (
   PRIMARY KEY (`id`),
   KEY `fk_shop_has_item_shop` (`shop_id`),
   KEY `fk_shop_hat_item_shop_item` (`shop_item_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_has_item
 -- ----------------------------
-INSERT INTO `shop_has_item` VALUES ('3', '1', '2', '115', '1');
-INSERT INTO `shop_has_item` VALUES ('4', '1', '1', '50', '1');
+INSERT INTO `shop_has_item` VALUES ('3', '1', '2', '85', '0');
+INSERT INTO `shop_has_item` VALUES ('4', '1', '1', '46', '0');
 INSERT INTO `shop_has_item` VALUES ('5', '1', '3', '20', '1');
+INSERT INTO `shop_has_item` VALUES ('6', '1', '4', '11', null);
+INSERT INTO `shop_has_item` VALUES ('7', '1', '5', '7', null);
 
 -- ----------------------------
 -- Table structure for `shop_item`
@@ -140,14 +142,16 @@ CREATE TABLE `shop_item` (
   `speed` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_shop_item_shop_item_type` (`shop_item_type_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_item
 -- ----------------------------
-INSERT INTO `shop_item` VALUES ('1', 'ekekapa', '1200', '2', '0', '15');
-INSERT INTO `shop_item` VALUES ('2', 'robokapa', '0', '2', '100', '10');
-INSERT INTO `shop_item` VALUES ('3', 'pizza', '10', '1', '0', null);
+INSERT INTO `shop_item` VALUES ('1', 'ekekapa', '1200', '2', null, '15');
+INSERT INTO `shop_item` VALUES ('2', 'robokapa', '0', '2', '100', null);
+INSERT INTO `shop_item` VALUES ('3', 'pizza', '10', '1', null, null);
+INSERT INTO `shop_item` VALUES ('4', 'csákány', '13', '2', '0', '2');
+INSERT INTO `shop_item` VALUES ('5', 'speedcsákány', '0', '2', '20', '20');
 
 -- ----------------------------
 -- Table structure for `shop_item_type`
@@ -181,7 +185,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'adobi', 'adobi', '1700');
+INSERT INTO `user` VALUES ('1', 'adobi', 'adobi', '709');
 
 -- ----------------------------
 -- Table structure for `user_has_mine_item`
@@ -213,14 +217,16 @@ CREATE TABLE `user_has_shop_item` (
   PRIMARY KEY (`id`),
   KEY `fk_user_bought_item_shop_item_id` (`shop_item_id`),
   KEY `fk_user_bought_item_user` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_has_shop_item
 -- ----------------------------
-INSERT INTO `user_has_shop_item` VALUES ('1', '1', '1', '1');
+INSERT INTO `user_has_shop_item` VALUES ('1', '1', '1', '9');
 INSERT INTO `user_has_shop_item` VALUES ('2', '1', '2', '1');
 INSERT INTO `user_has_shop_item` VALUES ('3', '1', '3', '1');
+INSERT INTO `user_has_shop_item` VALUES ('31', '1', '4', '3');
+INSERT INTO `user_has_shop_item` VALUES ('32', '1', '5', '3');
 
 -- ----------------------------
 -- Table structure for `user_mine`
@@ -257,12 +263,13 @@ CREATE TABLE `user_mined_item_log` (
   KEY `fk_user_mined_item_log_user` (`user_id`),
   KEY `fk_user_mined_item_log_mine_has_item` (`mine_has_item_id`),
   KEY `fk_user_mined_item_log_user_has_shop_item` (`users_item_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_mined_item_log
 -- ----------------------------
 INSERT INTO `user_mined_item_log` VALUES ('19', '1', '6', '2011-06-29 14:37:16', '2011-06-29 14:39:46', '1');
+INSERT INTO `user_mined_item_log` VALUES ('20', '1', '6', '2011-06-30 11:48:42', '2011-06-30 11:51:12', '1');
 
 -- ----------------------------
 -- Table structure for `user_purchase_log`
@@ -275,11 +282,18 @@ CREATE TABLE `user_purchase_log` (
   `quantity` int(11) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `purchase_type` int(11) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_user_purchase_log_user` (`user_id`),
   KEY `fk_user_purchase_log_shop_item` (`shop_item_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_purchase_log
 -- ----------------------------
+INSERT INTO `user_purchase_log` VALUES ('1', '1', '4', '2', '2011-06-30 14:39:38', '1', '26');
+INSERT INTO `user_purchase_log` VALUES ('2', '1', '4', '3', '2011-06-30 14:40:46', '1', '39');
+INSERT INTO `user_purchase_log` VALUES ('3', '1', '4', '3', '2011-06-30 14:41:57', '1', '39');
+INSERT INTO `user_purchase_log` VALUES ('4', '1', '4', '1', '2011-06-30 14:43:57', '1', '13');
+INSERT INTO `user_purchase_log` VALUES ('5', '1', '5', '3', '2011-06-30 14:45:05', '2', null);
+INSERT INTO `user_purchase_log` VALUES ('6', '1', '1', '1', '2011-06-30 14:46:43', '1', '1200');

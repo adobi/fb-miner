@@ -1,6 +1,6 @@
 var Game = Game || {};
 
-(function($) {
+(function($) { 
     Game.ChangeScreen = function()
     {
         $('.game-canvas').delegate('.change-screen', 'click', function() {
