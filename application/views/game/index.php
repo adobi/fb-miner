@@ -7,7 +7,7 @@
             </div>
         </div>
         <div  class="game-button-bg"  style="float:right;">
-            <a href="<?= base_url() ?>shop" id = "play-the-game"  class="change-screen game-button">Enter the shop</a>
+            <a href="<?= base_url() ?>game/shop" id = "play-the-game"  class="change-screen game-button">Enter the shop</a>
         </div>
          
         <div  class="span-18 <?= $next_mining_time ? '' : 'hidden' ?>"  style="text-align:right;" id = "next-mining-notification">
@@ -19,7 +19,7 @@
 
 <div class = "game-canvas-main span-19" style="margin:0px;"></div>
 
-<a href="<?= base_url() ?>game/main" class = "change-screen hidden" id = "back-to-main">select another map</a>
+<a href="<?= base_url() ?>game/main" class = "change-screen hidden" id = "back-to-main">back to main page</a>
 <br />
 <a href="" class = "change-screen" id = "reload">reload</a>
 

@@ -6,7 +6,7 @@
         </p>
         <p>
             <label for="quantity" class="block">Quantity</label>
-            <input type="text" name="quantity" value="" id="quantity" />
+            <input type="text" name="quantity" value="" id="quantity" size = "20"/>
         </p>
         <p>
             <label for="is_free" class = "block">Is free</label>

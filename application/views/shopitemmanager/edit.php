@@ -10,7 +10,7 @@
         </p>
         <p>
             <label for="speed" class = "block">Speed / unit</label>
-            <input type="text" name="speed" value="<?= $current_item ? $current_item->speed : '' ?>" id="speed" size = "10"/> seconds
+            <input type="text" name="speed" value="<?= $current_item ? $current_item->speed : '' ?>" id="speed" size = "10"/> sec
         </p>
         <p>
             <label for="price" class = "block">Price</label>

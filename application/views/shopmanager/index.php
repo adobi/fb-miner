@@ -53,8 +53,14 @@
     <?php if ($items): ?>
         <?php foreach ($items as $item): ?>
             <div class = "item span-4 round <?= $item->fb_coin_price ? ' item-for-facebook-coin' : '' ?>">
-                <strong><?= $item->name ?> - <?= $item->type_name ?></strong>
-                
+                <strong><?= strtoupper($item->type_name) ?> <?= $item->name ?></strong>
+                <p>
+                <?php if ($item->shop_item_type_id == 2): ?>
+                    <?= $item->speed ?> unit/sec
+                <?php else: ?>
+                    &nbsp;
+                <?php endif ?>
+                </p>
                 <p class = "text-right">
                     <a href="<?= base_url() ?>shopitemmanager/edit/<?= $item->id ?>" rel = "dialog" title = "Edit shop item">edit</a>
                     <a href="<?= base_url() ?>shopitemmanager/delete/<?= $item->id ?>" class = "delete">delete</a>

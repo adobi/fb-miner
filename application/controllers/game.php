@@ -247,5 +247,30 @@ class Game extends Game_Controller
         
         die;
     }
+    
+    public function shop()
+    {
+        $data = array();
+        
+        $this->load->model('Shophasitems', 'shopitems');
+        $this->load->model('Shops', 'shop');
+        $this->load->model('Shopitemtypes', 'types');
+        
+        $shop = $this->shop->fetchAll();
+        $types = $this->types->fetchAll();
+        
+        $items = array();
+        if ($types) {
+            
+            foreach ($types as $type) {
+                
+                $items[$type->name] = $this->shopitems->fetchForShopByType($shop[0]->id, $type->id);
+            }
+        }
+        $data['shopitems'] = $items;
+        
+        $currentUser = $this->session->userdata('player');
+        $this->template->build('game/shop', $data);
+    }
 
 }
